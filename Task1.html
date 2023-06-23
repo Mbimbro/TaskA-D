@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Sorting Drinks by Price</title>
+</head>
+
+<body>
+    <h1>Sorting Drinks by Price</h1>
+    <p>The sorted drinks array:</p>
+    <ul id="output"></ul>
+    <script>
+        function sortDrinkByPrice(drinks) {
+            // Use the sort() method to sort the drinks array based on the price property
+            drinks.sort(function (a, b) {
+                return a.price - b.price;
+            });
+            return drinks;
+        }
+        // Example usage
+        var drinks = [
+            { name: "lemonade", price: 50 },
+            { name: "lime", price: 10 },
+            { name: "Coke", price: 40 }
+        ];
+        var sortedDrinks = sortDrinkByPrice(drinks);
+        // Display the sorted drinks array on the webpage
+        var outputElement = document.getElementById("output");
+        sortedDrinks.forEach(function (drink) {
+            var listItem = document.createElement("li");
+            listItem.textContent = drink.name + ": $" + drink.price;
+            outputElement.appendChild(listItem);
+        });
+    </script>
+</body>
+
+</html>

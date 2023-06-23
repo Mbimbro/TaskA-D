@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>Comparison of Ages</title>
+</head>
+
+<body>
+    <h1>Comparison of Ages</h1>
+    <button onclick="displayComparison()">Compare Ages</button>
+    <p id="comparison1"></p>
+    <p id="comparison2"></p>
+    <p id="comparison3"></p>
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            compareAge(otherPerson) {
+                if (otherPerson.age > this.age) {
+                    return `${otherPerson.name} is older than me.`;
+                } else if (otherPerson.age < this.age) {
+                    return `${otherPerson.name} is younger than me.`;
+                } else {
+                    return `${otherPerson.name} is the same age as me.`;
+                }
+            }
+        }
+        // Example usage
+        const p1 = new Person("Alice", 25);
+        const p2 = new Person("Bob", 30);
+        const p3 = new Person("Charlie", 25);
+        function displayComparison() {
+            const comparison1 = p1.compareAge(p2);
+            const comparison2 = p2.compareAge(p1);
+            const comparison3 = p1.compareAge(p3);
+            document.getElementById('comparison1').textContent = comparison1;
+            document.getElementById('comparison2').textContent = comparison2;
+            document.getElementById('comparison3').textContent = comparison3;
+        }
+    </script>
+</body>
+
+</html>
